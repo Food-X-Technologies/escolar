@@ -1,0 +1,25 @@
+{
+    "name": "@foodx/escolar",
+    "version": "0.0.0",
+    "license": "MIT",
+    "author": {
+      "name": "Jef King",
+      "email": "jef@foodxtech.com",
+      "url": "https://foodxtech.com"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Food-X-Technologies/escolar.git"
+    },
+    "description": "",
+    "homepage": "https://github.com/Food-X-Technologies/escolar/blob/main/README.md",
+    "url": "https://github.com/Food-X-Technologies/escolar/issues",
+    "main": "index.js",
+    "bin": "./index.js",
+    "scripts": {
+      "escolar": "node ./index.js"
+    },
+    "dependencies": {
+    }
+  }
+  
