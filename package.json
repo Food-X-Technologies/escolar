@@ -1,25 +1,26 @@
 {
-    "name": "@foodx/escolar",
-    "version": "0.0.1",
-    "license": "MIT",
-    "author": {
-      "name": "Jef King",
-      "email": "jef@foodxtech.com",
-      "url": "https://foodxtech.com"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/Food-X-Technologies/escolar.git"
-    },
-    "description": "",
-    "homepage": "https://github.com/Food-X-Technologies/escolar/blob/main/README.md",
-    "url": "https://github.com/Food-X-Technologies/escolar/issues",
-    "main": "index.js",
-    "bin": "./index.js",
-    "scripts": {
-      "escolar": "node ./index.js"
-    },
-    "dependencies": {
-    }
+  "name": "@foodx/escolar",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Jef King",
+    "email": "jef@foodxtech.com",
+    "url": "https://foodxtech.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Food-X-Technologies/escolar.git"
+  },
+  "description": "",
+  "homepage": "https://github.com/Food-X-Technologies/escolar/blob/main/README.md",
+  "url": "https://github.com/Food-X-Technologies/escolar/issues",
+  "main": "index.js",
+  "bin": "./index.js",
+  "scripts": {
+    "escolar": "node ./index.js --file ./test.json"
+  },
+  "dependencies": {
+    "object-recursive-iterator": "^2.1.0",
+    "yargs": "^16.2.0"
   }
-  
+}

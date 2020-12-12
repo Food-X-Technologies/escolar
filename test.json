@@ -1,3 +1,8 @@
 {
-    "property": "@@escolar(./contents.txt)"
+    "property": "@@escolar(./contents.txt)",
+    "fake": [],
+    "inner": {
+        "nope": 123,
+        "what": "yes"
+    }
 }
