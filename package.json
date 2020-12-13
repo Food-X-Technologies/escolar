@@ -1,6 +1,6 @@
 {
   "name": "@foodx/escolar",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "MIT",
   "author": {
     "name": "Jef King",
@@ -17,7 +17,7 @@
   "main": "index.js",
   "bin": "./index.js",
   "scripts": {
-    "escolar": "node ./index.js --file ./test.json"
+    "escolar": "node ./index.js -f"
   },
   "dependencies": {
     "fs": "0.0.1-security",
