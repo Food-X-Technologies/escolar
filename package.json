@@ -20,6 +20,7 @@
     "escolar": "node ./index.js --file ./test.json"
   },
   "dependencies": {
+    "fs": "0.0.1-security",
     "object-recursive-iterator": "^2.1.0",
     "yargs": "^16.2.0"
   }

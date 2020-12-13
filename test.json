@@ -1,5 +1,5 @@
 {
-    "property": "@@escolar(./contents.txt)",
+    "property": "<./contents.txt>",
     "fake": [],
     "inner": {
         "nope": 123,
