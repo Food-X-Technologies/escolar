@@ -13,19 +13,7 @@ const argv = yargs(hideBin(process.argv))
 
 const regex = /#(.*?)#/;
 const data = require(argv.file);
-let output = mapObjectRecursive(data, function (key, value, obj) {
-    console.log(value);
-    if (regex.test(value)) {
-        fs.readFile(value.match(regex)[1], (err, contents) => {
-            if (err) throw err;
-            return [key, contents.toString()];
-        });
-    }
-    else {
-        return [key, value];
-    }
-}
-);
+let output = mapObjectRecursive(data, function (key, value, obj) { return [key, GetValue(value)]; });
 
 fs.writeFileSync(argv.file
     , JSON.stringify(output, null, 1)
@@ -37,3 +25,7 @@ fs.writeFileSync(argv.file
         if (err) console.log(err);
     }
 );
+
+function GetValue(value) {
+    return regex.test(value) ? fs.readFileSync(value.match(regex)[1]).toString() : value;
+}
