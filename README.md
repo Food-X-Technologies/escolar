@@ -23,7 +23,7 @@ Reads from properties that start and end with '#'; containing a file name inbetw
 ```
 working, y'all!
 ```
-### Output:
+### Output
 ```
 {
     "property": "working, y'all!",
