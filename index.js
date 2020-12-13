@@ -11,23 +11,25 @@ const argv = yargs(hideBin(process.argv))
     })
     .argv
 
-    const regex = /<(.*?)>/;
+    const regex = /#(.*?)#/;
 const data = require(argv.file);
 
 iterator.forAll(data, function (path, key, obj) {
     if (regex.test(obj[key])) {
-        let file = obj[key].match(regex)[1];
-        console.log('file name: ', file);
-
-        console.log('value before processing: ', obj[key]);
-        fs.readFile(file, (err, data) => { 
+        fs.readFile(obj[key].match(regex)[1], (err, data) => { 
             if (err) throw err; 
             obj[key] = data.toString();
-            console.log('value after processing: ', obj[key]);
-        }) 
-
-        console.log('----------');
+        });
     }
 });
 
-fs.writeFile(argv.file, data);
+fs.writeFile(argv.file
+    , JSON.stringify(data, null, 1)
+    , {
+        flag: 'w+',
+        encoding: "utf8"
+    }
+    , function (err, d) {
+        if (err) console.log(err);
+    }
+);

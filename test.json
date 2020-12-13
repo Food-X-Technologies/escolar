@@ -1,8 +1,8 @@
 {
-    "property": "<./contents.txt>",
-    "fake": [],
-    "inner": {
-        "nope": 123,
-        "what": "yes"
-    }
+ "property": "#./contents.txt#",
+ "fake": [],
+ "inner": {
+  "nope": 123,
+  "what": "yes"
+ }
 }
