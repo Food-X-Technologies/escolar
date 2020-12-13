@@ -1,6 +1,6 @@
 {
   "name": "@foodx/escolar",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "author": {
     "name": "Jef King",
@@ -20,9 +20,8 @@
     "escolar": "node ./index.js -f"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
     "map-object-recursive": "0.0.1",
-    "yargs": "^16.2.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "yargs": "^16.2.0"
   }
 }

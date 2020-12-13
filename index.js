@@ -16,24 +16,18 @@ const argv = yargs(hideBin(process.argv))
 const relative = '../../..';
 const regex = /#(.*?)#/;
 var file = path.join(__dirname, relative, argv.file);
-console.log("processing: ", file);
+console.log("starting: ", file);
 const data = require(file);
 let output = mapAll(data, function (key, value, obj) { return [key, GetValue(value)]; });
 
-fs.writeFileSync(file
-    , JSON.stringify(output, null, 4)
-    , {
-        flag: 'w+',
-        encoding: "utf8"
-    }
-    , function (err, d) {
-        if (err) console.log(err);
-    }
+fs.writeFileSync(file, JSON.stringify(output, null, 4) , { flag: 'w+', encoding: "utf8" }
+    , function (err, d) { if (err) console.error(err); }
 );
 
+console.log("done: ", file);
+
 function GetValue(value) {
-    if (regex.test(value)) {
-        let f = path.join(__dirname, relative, value.match(regex)[1]);
-        return fs.readFileSync(f).toString();
-    } else return value;
+    return regex.test(value) ?
+        fs.readFileSync(path.join(__dirname, relative, value.match(regex)[1])).toString()
+        : value;
 }
