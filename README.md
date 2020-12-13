@@ -8,7 +8,7 @@ Replace properties in json with file contents.
 Reads from properties that start and end with '#'; containing a file name inbetween.
 
 ## Example
-### [Json File]()
+### [Json File](https://github.com/Food-X-Technologies/escolar/blob/main/example/example.json)
 ```
 {
     "property": "#./contents.txt#",
@@ -19,7 +19,7 @@ Reads from properties that start and end with '#'; containing a file name inbetw
     }
 }
 ```
-### [Text File]()
+### [Text File](https://github.com/Food-X-Technologies/escolar/blob/main/example/contents.txt)
 ```
 working, y'all!
 ```
