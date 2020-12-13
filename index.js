@@ -21,7 +21,7 @@ const data = require(file);
 let output = mapAll(data, function (key, value, obj) { return [key, GetValue(value)]; });
 
 fs.writeFileSync(file
-    , JSON.stringify(output, null, 1)
+    , JSON.stringify(output, null, 4)
     , {
         flag: 'w+',
         encoding: "utf8"
