@@ -1,6 +1,6 @@
 {
   "name": "@foodx/escolar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "author": {
     "name": "Jef King",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/Food-X-Technologies/escolar.git"
   },
-  "description": "",
+  "description": "Replaces values in json object with contents of a file.",
   "homepage": "https://github.com/Food-X-Technologies/escolar/blob/main/README.md",
   "url": "https://github.com/Food-X-Technologies/escolar/issues",
   "main": "index.js",
@@ -20,8 +20,9 @@
     "escolar": "node ./index.js -f"
   },
   "dependencies": {
-    "fs": "0.0.1-security",
+    "fs": "^0.0.1-security",
     "map-object-recursive": "0.0.1",
-    "yargs": "^16.2.0"
+    "yargs": "^16.2.0",
+    "path": "^0.12.7"
   }
 }

@@ -2,6 +2,7 @@
 
 const mapAll = require('map-object-recursive');
 const fs = require('fs');
+const path = require('path');
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const { string } = require('yargs');
@@ -13,11 +14,12 @@ const argv = yargs(hideBin(process.argv))
     .argv
 
 const regex = /#(.*?)#/;
-console.log("processing: ", argv.file)
-const data = require(argv.file);
+var file = path.join(__dirname, '..', argv.file);
+console.log("processing: ", file);
+const data = require(file);
 let output = mapAll(data, function (key, value, obj) { return [key, GetValue(value)]; });
 
-fs.writeFileSync(argv.file
+fs.writeFileSync(file
     , JSON.stringify(output, null, 1)
     , {
         flag: 'w+',
