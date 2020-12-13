@@ -16,14 +16,14 @@ const data = require(argv.file);
 
 iterator.forAll(data, function (path, key, obj) {
     if (regex.test(obj[key])) {
-        fs.readFile(obj[key].match(regex)[1], (err, data) => { 
+        fs.readFile(obj[key].match(regex)[1], (err, contents) => { 
             if (err) throw err; 
-            obj[key] = data.toString();
+            obj[key] = contents.toString();
         });
     }
 });
 
-fs.writeFile(argv.file
+fs.writeFileSync(argv.file
     , JSON.stringify(data, null, 1)
     , {
         flag: 'w+',
