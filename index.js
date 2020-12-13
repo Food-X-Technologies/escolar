@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const iterator = require('object-recursive-iterator');
-const fs = require('fs') ;
+const mapObjectRecursive = require('map-object-recursive');
+const fs = require('fs');
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const argv = yargs(hideBin(process.argv))
@@ -11,20 +11,24 @@ const argv = yargs(hideBin(process.argv))
     })
     .argv
 
-    const regex = /#(.*?)#/;
+const regex = /#(.*?)#/;
 const data = require(argv.file);
-
-iterator.forAll(data, function (path, key, obj) {
-    if (regex.test(obj[key])) {
-        fs.readFile(obj[key].match(regex)[1], (err, contents) => { 
-            if (err) throw err; 
-            obj[key] = contents.toString();
+let output = mapObjectRecursive(data, function (key, value, obj) {
+    console.log(value);
+    if (regex.test(value)) {
+        fs.readFile(value.match(regex)[1], (err, contents) => {
+            if (err) throw err;
+            return [key, contents.toString()];
         });
     }
-});
+    else {
+        return [key, value];
+    }
+}
+);
 
 fs.writeFileSync(argv.file
-    , JSON.stringify(data, null, 1)
+    , JSON.stringify(output, null, 1)
     , {
         flag: 'w+',
         encoding: "utf8"
