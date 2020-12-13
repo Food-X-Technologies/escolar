@@ -20,7 +20,7 @@
     "escolar": "node ./index.js -f"
   },
   "dependencies": {
-    "map-object-recursive": "0.0.1",
+    "map-object-recursive": "^0.0.1",
     "path": "^0.12.7",
     "yargs": "^16.2.0"
   }
