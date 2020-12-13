@@ -13,8 +13,9 @@ const argv = yargs(hideBin(process.argv))
     })
     .argv
 
+const relative = '../../..';
 const regex = /#(.*?)#/;
-var file = path.join(__dirname, '..', argv.file);
+var file = path.join(__dirname, relative, argv.file);
 console.log("processing: ", file);
 const data = require(file);
 let output = mapAll(data, function (key, value, obj) { return [key, GetValue(value)]; });
@@ -31,5 +32,8 @@ fs.writeFileSync(file
 );
 
 function GetValue(value) {
-    return regex.test(value) ? fs.readFileSync(value.match(regex)[1]).toString() : value;
+    if (regex.test(value)) {
+        let f = path.join(__dirname, relative, value.match(regex)[1]);
+        return fs.readFileSync(f).toString();
+    } else return value;
 }
