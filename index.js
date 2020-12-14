@@ -27,14 +27,10 @@ console.log("starting: ", file);
 const data = require(file);
 const output = mapAll(data, function (key, value, obj) { return [key, GetValue(value)]; });
 
-fs.writeFileSync(file, JSON.stringify(output, null, 4), { flag: 'w+', encoding: "utf8" }
-    , function (err, d) { if (err) console.error(err); }
-);
+fs.writeFileSync(file, JSON.stringify(output, null, 4), { flag: 'w+', encoding: "utf8" }, function (err, d) { if (err) console.error(err); });
 
 console.log("done: ", file);
 
 function GetValue(value) {
-    return regex.test(value) ?
-        fs.readFileSync(path.join(__dirname, relative, value.match(regex)[1])).toString()
-        : value;
+    return regex.test(value) ? fs.readFileSync(path.join(__dirname, relative, value.match(regex)[1])).toString() : value;
 }
