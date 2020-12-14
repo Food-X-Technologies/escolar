@@ -11,16 +11,23 @@ const argv = yargs(hideBin(process.argv))
         alias: 'f',
         description: 'File for searching for replacements in.'
     })
+    .option('relative', {
+        alias: 'r',
+        default: '../../..',
+        description: 'File for searching for replacements in.'
+    })
     .argv
 
-const relative = '../../..';
+const relative = argv.relative;
 const regex = /#(.*?)#/;
-var file = path.join(__dirname, relative, argv.file);
-console.log("starting: ", file);
-const data = require(file);
-let output = mapAll(data, function (key, value, obj) { return [key, GetValue(value)]; });
+const file = path.join(__dirname, relative, argv.file);
 
-fs.writeFileSync(file, JSON.stringify(output, null, 4) , { flag: 'w+', encoding: "utf8" }
+console.log("starting: ", file);
+
+const data = require(file);
+const output = mapAll(data, function (key, value, obj) { return [key, GetValue(value)]; });
+
+fs.writeFileSync(file, JSON.stringify(output, null, 4), { flag: 'w+', encoding: "utf8" }
     , function (err, d) { if (err) console.error(err); }
 );
 
